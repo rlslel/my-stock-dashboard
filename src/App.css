@@ -1,0 +1,50 @@
+/* --- 모바일 반응형 디자인 (Mobile Responsive) --- */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 2.2fr 1.2fr; /* PC: 3단 */
+  gap: 24px;
+}
+
+/* 태블릿 (폭 1024px 이하) */
+@media (max-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr; /* 1단으로 변경 */
+  }
+  /* 모바일에서 사이드바 가리기 */
+  .sidebar-container {
+    position: fixed;
+    z-index: 3000;
+  }
+}
+
+/* 모바일 (폭 768px 이하) */
+@media (max-width: 768px) {
+  .dashboard-grid {
+    display: flex;
+    flex-direction: column; /* 세로로 쭉 나열 */
+  }
+  
+  /* 배당 캘린더도 세로로 */
+  .dividend-grid {
+    grid-template-columns: 1fr !important; 
+  }
+
+  /* 폰트 사이즈 조정 */
+  .total-asset-text {
+    font-size: 28px !important;
+  }
+}
+
+/* 차트 모달 스타일 */
+.modal-overlay {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 9999; backdrop-filter: blur(5px);
+}
+.modal-content {
+  width: 90%; height: 80vh;
+  border-radius: 20px; overflow: hidden;
+  position: relative;
+  background: #131722; /* 차트 배경색 */
+}
